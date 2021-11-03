@@ -46,25 +46,25 @@ public class homeJFrame extends javax.swing.JFrame {
 
         homeJSplitPane = new javax.swing.JSplitPane();
         controlJPanel = new javax.swing.JPanel();
-        viewJButton = new javax.swing.JButton();
         manageJButton = new javax.swing.JButton();
+        viewJButton = new javax.swing.JButton();
         displayJPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         controlJPanel.setBackground(new java.awt.Color(0, 102, 102));
 
-        viewJButton.setText("Manage");
-        viewJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewJButtonActionPerformed(evt);
-            }
-        });
-
-        manageJButton.setText("View");
+        manageJButton.setText("Manage");
         manageJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageJButtonActionPerformed(evt);
+            }
+        });
+
+        viewJButton.setText("View");
+        viewJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewJButtonActionPerformed(evt);
             }
         });
 
@@ -75,17 +75,17 @@ public class homeJFrame extends javax.swing.JFrame {
             .addGroup(controlJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(controlJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(viewJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(manageJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         controlJPanelLayout.setVerticalGroup(
             controlJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlJPanelLayout.createSequentialGroup()
                 .addGap(106, 106, 106)
-                .addComponent(viewJButton)
-                .addGap(47, 47, 47)
                 .addComponent(manageJButton)
+                .addGap(47, 47, 47)
+                .addComponent(viewJButton)
                 .addContainerGap(311, Short.MAX_VALUE))
         );
 
@@ -108,22 +108,22 @@ public class homeJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void viewJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewJButtonActionPerformed
+    private void manageJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageJButtonActionPerformed
         // TODO add your handling code here:
         systemJPanel sysJPanel = new systemJPanel(displayJPanel, system);
         displayJPanel.add("CitiesInformation",sysJPanel);
         CardLayout cardLayout = (CardLayout) displayJPanel.getLayout();
         cardLayout.next(displayJPanel);
-    }//GEN-LAST:event_viewJButtonActionPerformed
+    }//GEN-LAST:event_manageJButtonActionPerformed
 
-    private void manageJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageJButtonActionPerformed
+    private void viewJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewJButtonActionPerformed
         // TODO add your handling code here:
-        TrackJPanel trackJPanel = new TrackJPanel(system);
-        displayJPanel.add("TrackPanel", trackJPanel);
+        AbnormalVSJPanel abnormalvsJPanel = new AbnormalVSJPanel(displayJPanel,system);
+        displayJPanel.add("AbnormalVSPanel", abnormalvsJPanel);
         CardLayout cardLayout = (CardLayout) displayJPanel.getLayout();
         cardLayout.next(displayJPanel);
         
-    }//GEN-LAST:event_manageJButtonActionPerformed
+    }//GEN-LAST:event_viewJButtonActionPerformed
 
     /**
      * @param args the command line arguments

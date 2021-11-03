@@ -17,7 +17,7 @@ import model.Community;
  *
  * @author anshitaverma
  */
-public class AddCommunityJPanel extends javax.swing.JPanel {
+public class AddCmmnityJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AddCommunityJPanel
@@ -27,7 +27,7 @@ public class AddCommunityJPanel extends javax.swing.JPanel {
     private City city;
     
     
-    public AddCommunityJPanel(JPanel displayJPanel, City city) {
+    public AddCmmnityJPanel(JPanel displayJPanel, City city) {
         this.displayJPanel=displayJPanel;
         this.city=city;
         initComponents();
@@ -104,14 +104,24 @@ public class AddCommunityJPanel extends javax.swing.JPanel {
                 .addContainerGap(155, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    private boolean isValidName(String name){
+    return (name==null)||!(name.matches("[A-Za-z]+( [A-Za-z]+)?"));
+}
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
         // TODO add your handling code here:
         
         String communityName = communityNameJTextField.getText();
-        Community community = new Community(communityName,null,new Date(), new Date(), "System", "System");
-        city.getCommunities().add(community);
-        JOptionPane.showMessageDialog(this, "Successfully Saved");
+        
+        if(isValidName(communityName)){
+                    JOptionPane.showMessageDialog(this, "Enter Valid Community Name");
+
+        }
+        else{
+            Community community = new Community(communityName,null,new Date(), new Date());
+            city.getCommunities().add(community);
+            JOptionPane.showMessageDialog(this, "Successfully Saved");
+        }
+        
         communityNameJTextField.setText("");
     }//GEN-LAST:event_addJButtonActionPerformed
 

@@ -53,7 +53,7 @@ public class AddHouseJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(0, 153, 153));
 
-        addHouseJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        addHouseJLabel.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 18)); // NOI18N
         addHouseJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         addHouseJLabel.setText("Add House");
 
@@ -107,13 +107,25 @@ public class AddHouseJPanel extends javax.swing.JPanel {
                 .addContainerGap(149, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    private boolean isValidName(String name){
+        return (name==null)||name.isEmpty()||name.isBlank();
+    }
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
         // TODO add your handling code here:
+        String houseName = houseNameJTextField.getText();
+       
+        if(isValidName(houseName)){
+            JOptionPane.showMessageDialog(this, "Enter House Number");
 
-        House house = new House(houseNameJTextField.getText(), null, new Date(), new Date(), "System", "System");
-        community.getHouses().add(house);
-        JOptionPane.showMessageDialog(this, "Successfully Saved");
+        }
+        else if(community.getHouses()!=null){
+           
+             House house = new House(houseName, null, new Date(), new Date());
+             community.getHouses().add(house);
+             JOptionPane.showMessageDialog(this, "Successfully Saved");  
+             
+        }
+      
         houseNameJTextField.setText("");
     }//GEN-LAST:event_addJButtonActionPerformed
 

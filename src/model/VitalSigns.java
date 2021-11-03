@@ -27,8 +27,8 @@ public class VitalSigns extends ModificationInfo{
     
     private double oxygenSaturation;
 
-    public VitalSigns(double weight, double bloodPressure, double height, double bodyTemperate, int pulseRate, int respirationRate, double oxygenSaturation, Date createdDate, Date lastUpdatedDate, String createdBy, String modifiedBy) {
-        super(createdDate, lastUpdatedDate, createdBy, modifiedBy);
+    public VitalSigns(double weight, double bloodPressure, double height, double bodyTemperate, int pulseRate, int respirationRate, double oxygenSaturation, Date createdDate, Date lastUpdatedDate) {
+        super(createdDate, lastUpdatedDate);
         this.weight = weight;
         this.bloodPressure = bloodPressure;
         this.height = height;

@@ -66,7 +66,7 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
             }
         });
 
-        viewPersonjLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        viewPersonjLabel.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 18)); // NOI18N
         viewPersonjLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         viewPersonjLabel.setText("View Person");
 
@@ -134,13 +134,29 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {agejLabel, namejLabel});
 
     }// </editor-fold>//GEN-END:initComponents
-
+ private boolean isValidName(String name){
+    return (name==null)||!(name.matches("[A-Za-z]+( [A-Za-z]+)?"));
+} 
+    private boolean isValidAge(String age){
+        return (age==null)||age.isEmpty()||age.isBlank();
+    }
     private void updatejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatejButtonActionPerformed
         // TODO add your handling code here:
+        String name=namejTextField.getText();
+        String age =agejTextField.getText();
+        if(isValidName(name)){
+                    JOptionPane.showMessageDialog(this, "Enter valid Name");
+        }
+        else if(isValidAge(age)){
+                    JOptionPane.showMessageDialog(this, "Enter valid Age");
+
+        }
+        else{
+            person.setName(name);
+        person.setAge(Double.valueOf(age));
+        JOptionPane.showMessageDialog(this, "Successfully Updated Person Details");
+        }
         
-        person.setName(namejTextField.getText());
-        person.setAge(Double.valueOf(agejTextField.getText()));
-        JOptionPane.showMessageDialog(this, "Successfully updated Person Details");
     }//GEN-LAST:event_updatejButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

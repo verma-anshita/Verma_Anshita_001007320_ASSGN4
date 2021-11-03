@@ -44,16 +44,18 @@ public class houseJPanel extends javax.swing.JPanel {
         
         DefaultTableModel model = (DefaultTableModel) housesJTable.getModel();
         model.setRowCount(0);
-        
-        for(House house:community.getHouses()){
-            Object[] row = new Object[4];
+        if(community.getHouses()!=null){
+              for(House house:community.getHouses()){
+            Object[] row = new Object[3];
             row[0] = house;
             row[1] = formatDate(house.getCreatedDate());
             row[2] = formatDate(house.getLastUpdatedDate());
-            row[3] = house.getCreatedBy();
+       
             
             model.addRow(row);
         }
+        }
+      
     }
 
     private String formatDate(Date date){
@@ -90,26 +92,26 @@ public class houseJPanel extends javax.swing.JPanel {
             }
         });
 
-        housesJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        housesJLabel.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 18)); // NOI18N
         housesJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         housesJLabel.setText("Houses Present");
 
         housesJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "House Name", "Created On", "Updated On", "Created By"
+                "House Name", "Created On", "Updated On"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -194,7 +196,7 @@ public class houseJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = housesJTable.getSelectedRow();
         if(selectedRow <0){
-            JOptionPane.showMessageDialog(this, "Please Select any Community to View the Houses");
+            JOptionPane.showMessageDialog(this, "Please Select any House to View the Patients");
             return;
         }
 
@@ -227,21 +229,25 @@ public class houseJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = housesJTable.getSelectedRow();
         if(selectedRow <0){
-            JOptionPane.showMessageDialog(this, "Please Select any Community to delete");
+            JOptionPane.showMessageDialog(this, "Please Select any House to delete");
             return;
         }
         
         DefaultTableModel model = (DefaultTableModel) housesJTable.getModel();
         House house  = (House) model.getValueAt(selectedRow, 0);
         community.getHouses().remove(house);
-        system.getPersonDirectory().getPersons().removeAll(house.getPersons());
-        
-        List<Patient> patientsToRemove = new ArrayList<>();
-        for(Person person:house.getPersons()){
+    
+        if(house.getPersons()!=null){
+         system.getPersonDirectory().getPersons().removeAll(house.getPersons());
+         List<Patient> patientsToRemove = new ArrayList<>();
+         for(Person person:house.getPersons()){
             patientsToRemove.add(person.getPatient());
         }
+         system.getPatientDirectory().getPatients().removeAll(patientsToRemove);
+        }
         
-        system.getPatientDirectory().getPatients().removeAll(patientsToRemove);
+  
+       
         JOptionPane.showMessageDialog(this, "Successfully deleted the House");
         populateHouses();
     }//GEN-LAST:event_deleteJButtonActionPerformed
@@ -250,7 +256,7 @@ public class houseJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = housesJTable.getSelectedRow();
         if(selectedRow <0){
-            JOptionPane.showMessageDialog(this, "Please Select any Community to delete");
+            JOptionPane.showMessageDialog(this, "Please Select any House to Update");
             return;
         }
         

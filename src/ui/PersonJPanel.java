@@ -41,17 +41,18 @@ public class PersonJPanel extends javax.swing.JPanel {
         
         DefaultTableModel model = (DefaultTableModel) personsJTable.getModel();
         model.setRowCount(0);
-        
-        for(Person person:house.getPersons()){
-            Object[] row = new Object[5];
+        if(house.getPersons()!=null){
+              for(Person person:house.getPersons()){
+            Object[] row = new Object[4];
             row[0]=person;
             row[1]=person.getAge();
             row[2]=formatDate(person.getCreatedDate());
             row[3]=formatDate(person.getLastUpdatedDate());
-            row[4]=person.getCreatedBy();
             
             model.addRow(row);
         }
+        }
+      
     }
     
     private String formatDate(Date date){
@@ -88,26 +89,26 @@ public class PersonJPanel extends javax.swing.JPanel {
             }
         });
 
-        personsJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        personsJLabel.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 18)); // NOI18N
         personsJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        personsJLabel.setText("Person's Record");
+        personsJLabel.setText("Patient's Record");
 
         personsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Name", "Age", "Created On", " Updated On", "Created By"
+                "Name", "Age", "Created On", " Updated On"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -227,7 +228,7 @@ public class PersonJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedIndex = personsJTable.getSelectedRow();
         if(selectedIndex < 0){
-            JOptionPane.showMessageDialog(this, "Please select a row to delete Person");
+            JOptionPane.showMessageDialog(this, "Please select a row to delete Patient");
             return;
         }
         
@@ -245,7 +246,7 @@ public class PersonJPanel extends javax.swing.JPanel {
         
         int selectedIndex = personsJTable.getSelectedRow();
         if(selectedIndex < 0){
-            JOptionPane.showMessageDialog(this, "Please select a row to Display Person");
+            JOptionPane.showMessageDialog(this, "Please select a row to Display Patient Record");
             return;
         }
         

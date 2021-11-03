@@ -17,15 +17,12 @@ public class ModificationInfo {
     
     private Date lastUpdatedDate;
     
-    private String createdBy;
-    
-    private String modifiedBy;
+  
 
-    public ModificationInfo(Date createdDate, Date lastUpdatedDate, String createdBy, String modifiedBy) {
+    public ModificationInfo(Date createdDate, Date lastUpdatedDate) {
         this.createdDate = createdDate;
         this.lastUpdatedDate = lastUpdatedDate;
-        this.createdBy = createdBy;
-        this.modifiedBy = modifiedBy;
+
     }
     
     public Date getCreatedDate() {
@@ -44,20 +41,6 @@ public class ModificationInfo {
         this.lastUpdatedDate = lastUpdatedDate;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public String getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public void setModifiedBy(String modifiedBy) {
-        this.modifiedBy = modifiedBy;
-    }
     
+
 }

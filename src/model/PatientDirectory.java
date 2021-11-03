@@ -14,19 +14,19 @@ import java.util.List;
  */
  public class PatientDirectory extends ModificationInfo{
     
-    private List<Patient> patients;
+    private List<Patient> patientsList;
 
-    public PatientDirectory(List<Patient> patients, Date createdDate, Date lastUpdatedDate, String createdBy, String modifiedBy) {
-        super(createdDate, lastUpdatedDate, createdBy, modifiedBy);
-        this.patients=patients;
+    public PatientDirectory(List<Patient> patientsList, Date createdDate, Date lastUpdatedDate) {
+        super(createdDate, lastUpdatedDate);
+        this.patientsList=patientsList;
     }
 
     public List<Patient> getPatients() {
-        return patients;
+        return patientsList;
     }
 
-    public void setPatients(List<Patient> patients) {
-        this.patients = patients;
+    public void setPatients(List<Patient> patientsList) {
+        this.patientsList = patientsList;
     }
     
 }

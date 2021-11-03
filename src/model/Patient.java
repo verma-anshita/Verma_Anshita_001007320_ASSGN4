@@ -13,19 +13,19 @@ import java.util.Date;
  */
 public class Patient extends ModificationInfo{
  
-    private EncounterHistory encounterHistory;
+    private EncounterHistory encounteredHistory;
 
-    public Patient(EncounterHistory encounterHistory, Date createdDate, Date lastUpdatedDate, String createdBy, String modifiedBy) {
-        super(createdDate, lastUpdatedDate, createdBy, modifiedBy);
-        this.encounterHistory = encounterHistory;
+    public Patient(EncounterHistory encounteredHistory, Date createdDate, Date lastUpdatedDate) {
+        super(createdDate, lastUpdatedDate);
+        this.encounteredHistory = encounteredHistory;
     }
 
     public EncounterHistory getEncounterHistory() {
-        return encounterHistory;
+        return encounteredHistory;
     }
 
-    public void setEncounterHistory(EncounterHistory encounterHistory) {
-        this.encounterHistory = encounterHistory;
+    public void setEncounterHistory(EncounterHistory encounteredHistory) {
+        this.encounteredHistory = encounteredHistory;
     }
     
 }

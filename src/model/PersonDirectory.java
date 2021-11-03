@@ -14,19 +14,19 @@ import java.util.List;
  */
 public class PersonDirectory extends ModificationInfo{
     
-    private List<Person> persons;
+    private List<Person> personsList;
 
-    public PersonDirectory(List<Person> persons, Date createdDate, Date lastUpdatedDate, String createdBy, String modifiedBy) {
-        super(createdDate, lastUpdatedDate, createdBy, modifiedBy);
-        this.persons=persons;
+    public PersonDirectory(List<Person> personsList, Date createdDate, Date lastUpdatedDate) {
+        super(createdDate, lastUpdatedDate);
+        this.personsList=personsList;
     }
 
     public List<Person> getPersons() {
-        return persons;
+        return personsList;
     }
 
-    public void setPersons(List<Person> persons) {
-        this.persons = persons;
+    public void setPersons(List<Person> personsList) {
+        this.personsList = personsList;
     }
     
 }

@@ -77,16 +77,15 @@
         <Component class="javax.swing.JTable" name="encounterHistoryJTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="9" rowCount="4">
+              <Table columnCount="8" rowCount="4">
                 <Column editable="false" title="Weight" type="java.lang.Object"/>
-                <Column editable="false" title="Blood Pressure" type="java.lang.Double"/>
+                <Column editable="false" title="BP" type="java.lang.Double"/>
                 <Column editable="false" title="Height" type="java.lang.Double"/>
-                <Column editable="false" title="Body Temperature" type="java.lang.Double"/>
+                <Column editable="false" title="Temperature" type="java.lang.Double"/>
                 <Column editable="false" title="Pulse Rate" type="java.lang.Integer"/>
                 <Column editable="false" title="Respiration Rate" type="java.lang.Integer"/>
                 <Column editable="false" title="Oxygen Saturation" type="java.lang.Double"/>
                 <Column editable="false" title="Created On" type="java.lang.String"/>
-                <Column editable="false" title="Created By" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -156,7 +155,7 @@
     <Component class="javax.swing.JLabel" name="encounterHistoryJLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="18" style="1"/>
+          <Font name="Malayalam Sangam MN" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value=" Encounter History"/>

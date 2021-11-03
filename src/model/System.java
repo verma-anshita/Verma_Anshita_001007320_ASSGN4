@@ -14,15 +14,15 @@ import java.util.List;
  */
 public class System extends ModificationInfo{
     
-    private List<City> cities;
+    private List<City> citiesList;
     
     private PersonDirectory personDirectory;
     
     private PatientDirectory patientDirectory;
 
-    public System(List<City> cities,PersonDirectory personDirectory, PatientDirectory patientDirectory, Date createdDate, Date lastUpdatedDate, String createdBy, String modifiedBy) {
-        super(createdDate, lastUpdatedDate, createdBy, modifiedBy);
-        this.cities= cities;
+    public System(List<City> citiesList,PersonDirectory personDirectory, PatientDirectory patientDirectory, Date createdDate, Date lastUpdatedDate) {
+        super(createdDate, lastUpdatedDate);
+        this.citiesList= citiesList;
         this.personDirectory=personDirectory;
         this.patientDirectory=patientDirectory;
     }
@@ -44,11 +44,11 @@ public class System extends ModificationInfo{
     }
 
     public List<City> getCities() {
-        return cities;
+        return citiesList;
     }
 
-    public void setCities(List<City> cities) {
-        this.cities = cities;
+    public void setCities(List<City> citiesList) {
+        this.citiesList = citiesList;
     }
    
 }

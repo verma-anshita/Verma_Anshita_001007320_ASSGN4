@@ -14,19 +14,19 @@ import java.util.List;
  */
 public class EncounterHistory extends ModificationInfo{
     
-    private List<Encounter> encounters;
+    private List<Encounter> encountersList;
 
-    public EncounterHistory(List<Encounter> encounters,Date createdDate, Date lastUpdatedDate, String createdBy, String modifiedBy) {
-        super(createdDate, lastUpdatedDate, createdBy, modifiedBy);
-        this.encounters = encounters;
+    public EncounterHistory(List<Encounter> encountersList,Date createdDate, Date lastUpdatedDate) {
+        super(createdDate, lastUpdatedDate);
+        this.encountersList = encountersList;
     }
 
     public List<Encounter> getEncounters() {
-        return encounters;
+        return encountersList;
     }
 
-    public void setEncounters(List<Encounter> encounters) {
-        this.encounters = encounters;
+    public void setEncounters(List<Encounter> encountersList) {
+        this.encountersList = encountersList;
     }
     
 }

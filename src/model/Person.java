@@ -13,25 +13,25 @@ import java.util.Date;
  */
 public class Person extends ModificationInfo{
     
-    private String name;
+    private String pname;
     
     private double age;
     
     private Patient patient;
 
-    public Person(String name, double age, Patient patient, Date createdDate, Date lastUpdatedDate, String createdBy, String modifiedBy) {
-        super(createdDate, lastUpdatedDate, createdBy, modifiedBy);
+    public Person(String pname, double age, Patient patient, Date createdDate, Date lastUpdatedDate) {
+        super(createdDate, lastUpdatedDate);
         this.age = age;
-        this.name = name;
+        this.pname = pname;
         this.patient = patient;
     }
 
     public String getName() {
-        return name;
+        return pname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String pname) {
+        this.pname = pname;
     }
 
     public double getAge() {
@@ -52,7 +52,7 @@ public class Person extends ModificationInfo{
 
     @Override
     public String toString() {
-        return name;
+        return pname;
     }
 
 }

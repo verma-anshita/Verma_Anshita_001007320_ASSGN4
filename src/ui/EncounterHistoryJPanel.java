@@ -43,13 +43,12 @@ public class EncounterHistoryJPanel extends javax.swing.JPanel {
         
         DefaultTableModel model = (DefaultTableModel) encounterHistoryJTable.getModel();
         model.setRowCount(0);
-        
-        EncounterHistory encounterHistory = person.getPatient().getEncounterHistory();
+        if(person.getPatient()!=null){
+         EncounterHistory encounterHistory = person.getPatient().getEncounterHistory();
         List<Encounter> encounters = encounterHistory.getEncounters();
-        
-        for(Encounter encounter:encounters) {
+         for(Encounter encounter:encounters) {
             
-            Object[] row = new Object[9];
+            Object[] row = new Object[8];
             row[0]=encounter.getVitalSigns();
             row[1]=encounter.getVitalSigns().getBloodPressure();
             row[2]=encounter.getVitalSigns().getHeight();
@@ -58,10 +57,12 @@ public class EncounterHistoryJPanel extends javax.swing.JPanel {
             row[5]=encounter.getVitalSigns().getRespirationRate();
             row[6]=encounter.getVitalSigns().getOxygenSaturation();
             row[7]=formatDate(encounter.getVitalSigns().getCreatedDate());
-            row[8]=encounter.getVitalSigns().getCreatedBy();
+            
             
             model.addRow(row);
         }
+        }
+       
     }
     
     private String formatDate(Date date){
@@ -92,20 +93,20 @@ public class EncounterHistoryJPanel extends javax.swing.JPanel {
 
         encounterHistoryJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Weight", "Blood Pressure", "Height", "Body Temperature", "Pulse Rate", "Respiration Rate", "Oxygen Saturation", "Created On", "Created By"
+                "Weight", "BP", "Height", "Temperature", "Pulse Rate", "Respiration Rate", "Oxygen Saturation", "Created On"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -125,7 +126,7 @@ public class EncounterHistoryJPanel extends javax.swing.JPanel {
             }
         });
 
-        encounterHistoryJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        encounterHistoryJLabel.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 18)); // NOI18N
         encounterHistoryJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         encounterHistoryJLabel.setText(" Encounter History");
 

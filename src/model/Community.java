@@ -14,35 +14,35 @@ import java.util.List;
  */
 public class Community extends ModificationInfo{
     
-    private String communityName;
+    private String cmntyName;
     
-    private List<House> houses;
+    private List<House> housesList;
 
-    public Community(String communityName, List<House> houses, Date createdDate, Date lastUpdatedDate, String createdBy, String modifiedBy) {
-        super(createdDate, lastUpdatedDate, createdBy, modifiedBy);
-        this.communityName = communityName;
-        this.houses = houses;
+    public Community(String cmntyName, List<House> housesList, Date createdDate, Date lastUpdatedDate) {
+        super(createdDate, lastUpdatedDate);
+        this.cmntyName = cmntyName;
+        this.housesList = housesList;
     }
 
     public String getCommunityName() {
-        return communityName;
+        return cmntyName;
     }
 
-    public void setCommunityName(String communityName) {
-        this.communityName = communityName;
+    public void setCommunityName(String cmntyName) {
+        this.cmntyName = cmntyName;
     }
     
     public List<House> getHouses() {
-        return houses;
+        return housesList;
     }
 
-    public void setHouses(List<House> houses) {
-        this.houses = houses;
+    public void setHouses(List<House> housesList) {
+        this.housesList = housesList;
     }
 
     @Override
     public String toString() {
-        return communityName;
+        return cmntyName;
     }
     
 }

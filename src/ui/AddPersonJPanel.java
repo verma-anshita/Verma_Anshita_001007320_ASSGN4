@@ -60,7 +60,7 @@ public class AddPersonJPanel extends javax.swing.JPanel {
             }
         });
 
-        addPersonjLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        addPersonjLabel.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 18)); // NOI18N
         addPersonjLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         addPersonjLabel.setText("Add Person");
 
@@ -124,7 +124,12 @@ public class AddPersonJPanel extends javax.swing.JPanel {
                 .addGap(77, 77, 77))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    private boolean isValidName(String name){
+    return (name==null)||!(name.matches("[A-Za-z]+( [A-Za-z]+)?"));
+} 
+    private boolean isValidAge(String age){
+        return (age==null)||age.isEmpty()||age.isBlank();
+    }
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         // TODO add your handling code here:
         displayJPanel.remove(this);
@@ -138,16 +143,30 @@ public class AddPersonJPanel extends javax.swing.JPanel {
 
     private void addjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addjButtonActionPerformed
         // TODO add your handling code here:
-        Person person = new Person(namejTextField.getText(), Double.valueOf(agejTextField.getText()), null ,
-            new Date(), new Date(), "System", "System");
+        String name=namejTextField.getText();
+        String age=agejTextField.getText();
+        if(isValidName(name)){
+                    JOptionPane.showMessageDialog(this, "Enter valid Name");
+        }
+        else if(isValidAge(age)){
+                    JOptionPane.showMessageDialog(this, "Enter valid Age");
+
+        }
+        else{
+            Person person = new Person(name, Double.valueOf(age), null ,
+            new Date(), new Date());
+            if(house.getPersons()!=null){
+             house.getPersons().add(person);
+             system.getPersonDirectory().getPersons().add(person);
+             JOptionPane.showMessageDialog(this, "Successfully added Person");
+            }
+        }
         
-        house.getPersons().add(person);
-        system.getPersonDirectory().getPersons().add(person);
-        JOptionPane.showMessageDialog(this, "Successfully added Person");
-        resetUi();
+        
+        clear();
     }//GEN-LAST:event_addjButtonActionPerformed
 
-    private void resetUi() {
+    private void clear() {
         
         namejTextField.setText("");
         agejTextField.setText("");

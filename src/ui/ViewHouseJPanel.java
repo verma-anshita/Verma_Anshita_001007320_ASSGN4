@@ -55,7 +55,7 @@ public class ViewHouseJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(0, 153, 153));
 
-        viewHouseJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        viewHouseJLabel.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 18)); // NOI18N
         viewHouseJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         viewHouseJLabel.setText("View House");
 
@@ -113,12 +113,22 @@ public class ViewHouseJPanel extends javax.swing.JPanel {
                 .addContainerGap(163, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    private boolean isValidName(String name){
+        return (name==null)||name.isEmpty()||name.isBlank();
+    }
     private void updateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateJButtonActionPerformed
         // TODO add your handling code here:
+         String houseName = houseNameJTextField.getText();
+       
+        if(isValidName(houseName)){
+            JOptionPane.showMessageDialog(this, "Enter House Number");
 
-        house.setHouseName(houseNameJTextField.getText());
-        JOptionPane.showMessageDialog(this, "Successfully Saved");
+        }
+        else{
+            house.setHouseName(houseName);
+        JOptionPane.showMessageDialog(this, "Successfully Updated");
+        }
+        
         houseNameJTextField.setText("");
     }//GEN-LAST:event_updateJButtonActionPerformed
 

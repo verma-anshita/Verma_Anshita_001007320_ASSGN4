@@ -55,6 +55,7 @@ public class VitalSignsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         vitalSignsJLabel = new javax.swing.JLabel();
         weightJLabel = new javax.swing.JLabel();
         weightJTextField = new javax.swing.JTextField();
@@ -72,38 +73,41 @@ public class VitalSignsJPanel extends javax.swing.JPanel {
         oxygenSaturationJTextField = new javax.swing.JTextField();
         updateJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setBackground(new java.awt.Color(0, 153, 153));
 
-        vitalSignsJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 20)); // NOI18N
+        vitalSignsJLabel.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 20)); // NOI18N
         vitalSignsJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        vitalSignsJLabel.setText("Vital Signs");
+        vitalSignsJLabel.setText("Update Vital Signs");
 
-        weightJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        weightJLabel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         weightJLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         weightJLabel.setText("Weight :");
 
-        bloodPressureJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        bloodPressureJLabel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         bloodPressureJLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        bloodPressureJLabel.setText("Blood Pressure :");
+        bloodPressureJLabel.setText("BP:");
 
-        heightJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        heightJLabel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         heightJLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         heightJLabel.setText("Height :");
 
-        bodyTemperatureJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        bodyTemperatureJLabel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         bodyTemperatureJLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        bodyTemperatureJLabel.setText("Body Temperature :");
+        bodyTemperatureJLabel.setText("Temperature :");
 
-        pulseRateJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        pulseRateJLabel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         pulseRateJLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         pulseRateJLabel.setText("Pulse Rate :");
 
-        respirationRateJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        respirationRateJLabel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         respirationRateJLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         respirationRateJLabel.setText("Respiration Rate :");
 
-        oxygenSaturationJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        oxygenSaturationJLabel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         oxygenSaturationJLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         oxygenSaturationJLabel.setText("Oxygen Saturation :");
 
@@ -118,6 +122,13 @@ public class VitalSignsJPanel extends javax.swing.JPanel {
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
+            }
+        });
+
+        btnDelete.setText("Clear");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -144,7 +155,7 @@ public class VitalSignsJPanel extends javax.swing.JPanel {
                                         .addComponent(pulseRateJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(respirationRateJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(119, 119, 119)
+                                    .addGap(127, 127, 127)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(weightJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(bodyTemperatureJLabel)))
@@ -164,8 +175,10 @@ public class VitalSignsJPanel extends javax.swing.JPanel {
                                     .addComponent(oxygenSaturationJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(updateJButton)))))
-                .addContainerGap(265, Short.MAX_VALUE))
+                                .addComponent(updateJButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDelete)))))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bloodPressureJLabel, bodyTemperatureJLabel, heightJLabel, oxygenSaturationJLabel, pulseRateJLabel, respirationRateJLabel, weightJLabel});
@@ -206,11 +219,33 @@ public class VitalSignsJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateJButton)
-                    .addComponent(backJButton))
+                    .addComponent(backJButton)
+                    .addComponent(btnDelete))
                 .addGap(15, 15, 15))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    private boolean isValidWeight(String name){
+        return (name==null)||name.isEmpty()||name.isBlank();
+    }
+    private boolean isValidBP(String name){
+        return (name==null)||name.isEmpty()||name.isBlank();
+    }
+    private boolean isValidHeight(String name){
+        return (name==null)||name.isEmpty()||name.isBlank();
+    }
+    private boolean isValidTemperature(String name){
+        return (name==null)||name.isEmpty()||name.isBlank();
+    }
+    private boolean isValidPulseRate(String name){
+        return (name==null)||name.isEmpty()||name.isBlank();
+    }
+    private boolean isValidRespirationRate(String name){
+        return (name==null)||name.isEmpty()||name.isBlank();
+    }
+    private boolean isValidOxygen(String name){
+        return (name==null)||name.isEmpty()||name.isBlank();
+    }
+    
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         // TODO add your handling code here:
         displayJPanel.remove(this);
@@ -224,7 +259,35 @@ public class VitalSignsJPanel extends javax.swing.JPanel {
 
     private void updateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateJButtonActionPerformed
         // TODO add your handling code here:
+        if(isValidWeight(weightJTextField.getText())){
+            JOptionPane.showMessageDialog(this, "Enter valid weight");
+        }
+        else if (isValidBP(bloodPressureJTextField.getText())){
+                        JOptionPane.showMessageDialog(this, "Enter valid BP");
+
+        }
+           else if (isValidHeight(heightJTextField.getText())){
+                        JOptionPane.showMessageDialog(this, "Enter valid Height");
+
+        }
+         else if (isValidTemperature(bodyTemperatureJTextField.getText())){
+                        JOptionPane.showMessageDialog(this, "Enter valid Body Temperature");
+
+        }
+        else if (isValidPulseRate(pulseRateJTextField.getText())){
+                        JOptionPane.showMessageDialog(this, "Enter valid  Pulse Rate");
+
+        }
+        else if (isValidRespirationRate(respirationRateJTextField.getText())){
+                        JOptionPane.showMessageDialog(this, "Enter valid Respiration Rate Value");
+
+        }
+        else if (isValidOxygen(oxygenSaturationJTextField.getText())){
+                        JOptionPane.showMessageDialog(this, "Enter valid Oxygen Saturation value");
+
+        }
         
+        else{
         vitalSigns.setBloodPressure(Double.valueOf(bloodPressureJTextField.getText()));
         vitalSigns.setBodyTemperate(Double.valueOf(bodyTemperatureJTextField.getText()));
         vitalSigns.setHeight(Double.valueOf(heightJTextField.getText()));
@@ -234,11 +297,24 @@ public class VitalSignsJPanel extends javax.swing.JPanel {
         vitalSigns.setWeight(Double.valueOf(weightJTextField.getText()));
         
         JOptionPane.showMessageDialog(this, "Successfully updated the Vital Signs");
+        }
+       
         
         
     }//GEN-LAST:event_updateJButtonActionPerformed
 
-    private void resetData(){
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        weightJTextField.setText("");
+        bloodPressureJTextField.setText("");
+        heightJTextField.setText("");
+        bodyTemperatureJTextField.setText("");
+        pulseRateJTextField.setText("");
+        respirationRateJTextField.setText("");
+        oxygenSaturationJTextField.setText("");
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void clear(){
         
         bloodPressureJTextField.setText("");
         bodyTemperatureJTextField.setText("");
@@ -257,8 +333,10 @@ public class VitalSignsJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField bloodPressureJTextField;
     private javax.swing.JLabel bodyTemperatureJLabel;
     private javax.swing.JTextField bodyTemperatureJTextField;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JLabel heightJLabel;
     private javax.swing.JTextField heightJTextField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel oxygenSaturationJLabel;
     private javax.swing.JTextField oxygenSaturationJTextField;
     private javax.swing.JLabel pulseRateJLabel;

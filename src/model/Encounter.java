@@ -13,19 +13,19 @@ import java.util.Date;
  */
 public class Encounter extends ModificationInfo{
     
-    private VitalSigns vitalSigns;
+    private VitalSigns vSigns;
 
-    public Encounter(VitalSigns vitalSigns,Date createdDate, Date lastUpdatedDate, String createdBy, String modifiedBy) {
-        super(createdDate, lastUpdatedDate, createdBy, modifiedBy);
-        this.vitalSigns=vitalSigns;
+    public Encounter(VitalSigns vSigns,Date createdDate, Date lastUpdatedDate) {
+        super(createdDate, lastUpdatedDate);
+        this.vSigns=vSigns;
     }
 
     public VitalSigns getVitalSigns() {
-        return vitalSigns;
+        return vSigns;
     }
 
-    public void setVitalSigns(VitalSigns vitalSigns) {
-        this.vitalSigns = vitalSigns;
+    public void setVitalSigns(VitalSigns vSigns) {
+        this.vSigns = vSigns;
     }
    
 }

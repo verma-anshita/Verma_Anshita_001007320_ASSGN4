@@ -53,11 +53,11 @@ public class communityJPanel extends javax.swing.JPanel {
             if(city.getCityName().name().equalsIgnoreCase(selectedCity)){
                 this.city=city;
                 for(Community community:city.getCommunities()){
-                    Object[] row = new Object[4];
+                    Object[] row = new Object[3];
                     row[0]=community;
                     row[1]=formatDate(community.getCreatedDate());
                     row[2]=formatDate(community.getLastUpdatedDate());
-                    row[3]=community.getCreatedBy();
+               
                     
                     model.addRow(row);
                 }
@@ -86,26 +86,26 @@ public class communityJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(0, 153, 153));
 
-        communitiesJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        communitiesJLabel.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 18)); // NOI18N
         communitiesJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         communitiesJLabel.setText("Communities Present");
 
         communityJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Community Name", "Created On", "Updated On", "Created By"
+                "Community Name", "Created On", "Updated On"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -168,14 +168,14 @@ public class communityJPanel extends javax.swing.JPanel {
                 .addComponent(deleteJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(goJButton)
-                .addGap(291, 291, 291))
+                .addGap(352, 352, 352))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
+                        .addGap(146, 146, 146)
                         .addComponent(communitiesJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -233,17 +233,22 @@ public class communityJPanel extends javax.swing.JPanel {
         
         int selectedRow = communityJTable.getSelectedRow();
         if(selectedRow <0){
-            JOptionPane.showMessageDialog(this, "Please Select any Community to View the Houses");
+            JOptionPane.showMessageDialog(this, "Please Select any Community to Delete");
             return;
         }
         DefaultTableModel model = (DefaultTableModel) communityJTable.getModel();
         Community community = (Community) model.getValueAt(selectedRow, 0);
         
         List<Person> personsToRemove = new ArrayList<>();
-        List<House> houses = community.getHouses();
-        for(House house:houses) {
+        if(community.getHouses()!=null){
+              List<House> houses = community.getHouses();
+              for(House house:houses) {
             personsToRemove.addAll(house.getPersons());
         }
+             
+        }
+      
+        
         List<Patient> patientsToRemove = new ArrayList<>();
         for(Person person:personsToRemove) {
             patientsToRemove.add(person.getPatient());
@@ -275,7 +280,7 @@ public class communityJPanel extends javax.swing.JPanel {
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
         // TODO add your handling code here:
-        AddCommunityJPanel addCommunityJPanel = new AddCommunityJPanel(displayJPanel, city);
+        AddCmmnityJPanel addCommunityJPanel = new AddCmmnityJPanel(displayJPanel, city);
         displayJPanel.add("AddCommunityScreen", addCommunityJPanel);
         CardLayout cardLayout = (CardLayout) displayJPanel.getLayout();
         cardLayout.next(displayJPanel);

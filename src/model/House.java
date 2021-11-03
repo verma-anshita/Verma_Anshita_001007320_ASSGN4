@@ -14,35 +14,35 @@ import java.util.List;
  */
 public class House extends ModificationInfo{
  
-    private String houseName;
+    private String houseNumber;
     
-    private List<Person> persons;
+    private List<Person> personsList;
 
-    public House(String houseName, List<Person> persons, Date createdDate, Date lastUpdatedDate, String createdBy, String modifiedBy) {
-        super(createdDate, lastUpdatedDate, createdBy, modifiedBy);
-        this.houseName=houseName;
-        this.persons=persons;
+    public House(String houseNumber, List<Person> personsList, Date createdDate, Date lastUpdatedDate) {
+        super(createdDate, lastUpdatedDate);
+        this.houseNumber=houseNumber;
+        this.personsList=personsList;
     }
 
     public String getHouseName() {
-        return houseName;
+        return houseNumber;
     }
 
-    public void setHouseName(String houseName) {
-        this.houseName = houseName;
+    public void setHouseName(String houseNumber) {
+        this.houseNumber = houseNumber;
     }
     
     public List<Person> getPersons() {
-        return persons;
+        return personsList;
     }
 
-    public void setPersons(List<Person> persons) {
-        this.persons = persons;
+    public void setPersons(List<Person> personsList) {
+        this.personsList = personsList;
     }
 
     @Override
     public String toString() {
-        return houseName;
+        return houseNumber;
     }
     
 }

@@ -18,8 +18,8 @@ public class City extends ModificationInfo{
     
     private List<Community> communities;
 
-    public City(CityName cityName, List<Community> communities, Date createdDate, Date lastUpdatedDate, String createdBy, String modifiedBy) {
-        super(createdDate, lastUpdatedDate, createdBy, modifiedBy);
+    public City(CityName cityName, List<Community> communities, Date createdDate, Date lastUpdatedDate) {
+        super(createdDate, lastUpdatedDate);
         this.cityName=cityName;
         this.communities=communities;
     }

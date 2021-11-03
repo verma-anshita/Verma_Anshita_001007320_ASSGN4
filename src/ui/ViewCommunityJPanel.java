@@ -55,7 +55,7 @@ public class ViewCommunityJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(0, 153, 153));
 
-        viewCommunityJLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        viewCommunityJLabel.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 18)); // NOI18N
         viewCommunityJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         viewCommunityJLabel.setText("View Community");
 
@@ -111,12 +111,22 @@ public class ViewCommunityJPanel extends javax.swing.JPanel {
                 .addContainerGap(133, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+ private boolean isValidName(String name){
+    return (name==null)||!(name.matches("[A-Za-z]+( [A-Za-z]+)?"));
+}
     private void updateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateJButtonActionPerformed
         // TODO add your handling code here:
+        String communityName = communityNameJTextField.getText();
+         if(isValidName(communityName)){
+                    JOptionPane.showMessageDialog(this, "Enter Valid Community Name");
 
-        community.setCommunityName(communityNameJTextField.getText());
-        JOptionPane.showMessageDialog(this, "Successfully Saved");
+        }
+         else{
+             community.setCommunityName(communityName);
+        JOptionPane.showMessageDialog(this, "Successfully Updated");
+         }
+        
+        
         communityNameJTextField.setText("");
     }//GEN-LAST:event_updateJButtonActionPerformed
 
